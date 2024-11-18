@@ -1,0 +1,3 @@
+*.*
+!/plugins/intranet/**/*
+!/themes/intranet/**/*
