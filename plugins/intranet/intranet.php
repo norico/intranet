@@ -130,7 +130,7 @@ class IntranetPlugin {
     /**
      * Getter for theme slug
      *
-     * @var string
+     * @return string
      */
     public function get_plugin_slug(): string
     {
@@ -140,7 +140,7 @@ class IntranetPlugin {
     /**
      * Getter for theme version
      *
-     * @var string
+     * @return string
      */
     public function get_theme_version()
     {
@@ -155,9 +155,13 @@ class IntranetPlugin {
         update_user_meta( $user->ID, 'last_login', current_time( 'timestamp' ) );
     }
 
-    /**
-     * Add column to users page
-     */
+	/**
+	 * Add column to users page
+	 *
+	 * @param $columns
+	 *
+	 * @return array
+	 */
     public function admin_users_column( $columns ) : array {
         $columns['last_login'] = __( 'Last Login' );
         return $columns;
