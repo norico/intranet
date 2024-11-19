@@ -31,6 +31,7 @@ add_action('after_setup_theme', 'intranet_theme_setup');
 function intranet_theme_setup(  ): void {
 	add_theme_support("title-tag");
 	add_theme_support("post-thumbnails");
+	add_theme_support('html5', array( 'search-form', 'style', 'script') );
 }
 
 function create_new_category($name, $description=""): void {
@@ -50,7 +51,6 @@ function create_new_category($name, $description=""): void {
 	}
 
 }
-
 function create_and_set_default_pages(): void {
 	// Tableau des pages à créer
 	$pages = array(
@@ -108,8 +108,6 @@ function create_and_set_default_pages(): void {
 	}
 }
 
-
-
 add_filter( 'upload_mimes', 'allow_svg_upload' );
 function allow_svg_upload( $mimes ) {
 	$mimes['svg'] = 'image/svg+xml';
@@ -123,4 +121,22 @@ function fix_svg_mime_type( $data, $file, $filename, $mimes ): array {
 	$type = $filetype['type'];
 	$proper_filename = $data['proper_filename'];
 	return compact( 'ext', 'type', 'proper_filename' );
+}
+
+add_action('wp_head', 'add_custom_meta');
+
+//TODO:  add_custom_meta -> temporary function
+function add_custom_meta():void
+{
+	$author  = "webmaster";
+	$post = get_post();
+	if ( $post ) {
+		$author  = get_the_author_meta('login', get_post()->post_author);
+		echo '<meta name="post-id" content="'. get_post()->ID .'">'.PHP_EOL;
+	}
+	if ( !empty( $author ) ) {
+		echo '<meta name="author" content="'. $author .'">'.PHP_EOL;
+	}
+
+
 }
