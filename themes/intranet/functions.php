@@ -1,5 +1,5 @@
 <?php
-// Empêcher l'accès direct au fichier
+
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -14,9 +14,15 @@ add_action('after_switch_theme', 'intranet_switch_theme');
 
 function intranet_switch_theme(): void {
 	update_option('posts_per_page', 12);
+
+	update_option('timezone_string', 'Europe/Paris');
+	update_option('date_format', 'j F Y');
+	update_option('time_format', 'G\hi');
+
 	global $wp_rewrite;
 	$wp_rewrite->set_permalink_structure('/%postname%/');
 	$wp_rewrite->flush_rules();
+
 	create_and_set_default_pages();
 	create_new_category('Actualités', 'Les actualités du site');
 }
@@ -26,8 +32,6 @@ function intranet_theme_setup(  ): void {
 	add_theme_support("title-tag");
 	add_theme_support("post-thumbnails");
 }
-
-
 
 function create_new_category($name, $description=""): void {
 	$category = array(
