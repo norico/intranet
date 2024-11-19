@@ -627,6 +627,10 @@ video {
   min-height: calc(100vh - var(--wp-admin--admin-bar--height,0px));
 }
 
+.max-w-2xl {
+  max-width: 42rem;
+}
+
 .grow {
   flex-grow: 1;
 }
