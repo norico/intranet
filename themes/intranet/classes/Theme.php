@@ -195,12 +195,13 @@ class Theme {
 	 * @return string
 	 */
 	public function load_multisite_custom_template($template): string {
-
-		if (is_main_site() && is_front_page()) {
-			return locate_template('pages/multisite/front-page.php');
-		}
-		if (is_main_site() && is_home()) {
-			return locate_template('pages/multisite/home.php');
+		if ( is_multisite() ) {
+			if (is_main_site() && is_front_page()) {
+				return locate_template('pages/multisite/front-page.php');
+			}
+			if (is_main_site() && is_home()) {
+				return locate_template('pages/multisite/home.php');
+			}
 		}
 		return $template;
 	}
