@@ -1,6 +1,6 @@
 /*
 Theme Name: Intranet
-Version: 1.0.2
+Version: 1.0.3
 Author: the team
 Requires at least: 6.7
 Tested up to: 6.7
@@ -618,27 +618,14 @@ video {
   position: static;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
-.m-1 {
-  margin: 0.25rem;
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 
 .my-2 {
@@ -684,36 +671,16 @@ video {
   aspect-ratio: 16 / 9;
 }
 
-.h-14 {
-  height: 3.5rem;
-}
-
-.h-24 {
-  height: 6rem;
-}
-
 .h-full {
   height: 100%;
 }
 
-.min-h-\[calc\(100vh-var\(--wp-admin--admin-bar--height\2c 0px\)\)\] {
-  min-height: calc(100vh - var(--wp-admin--admin-bar--height,0px));
-}
-
-.min-h-12 {
-  min-height: 3rem;
-}
-
-.min-h-36 {
-  min-height: 9rem;
-}
-
-.min-h-14 {
-  min-height: 3.5rem;
-}
-
 .min-h-24 {
   min-height: 6rem;
+}
+
+.min-h-\[calc\(100vh-var\(--wp-admin--admin-bar--height\2c 0px\)\)\] {
+  min-height: calc(100vh - var(--wp-admin--admin-bar--height,0px));
 }
 
 .grow {
@@ -736,16 +703,12 @@ video {
   align-items: center;
 }
 
-.gap-4 {
-  gap: 1rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-
 .gap-1 {
   gap: 0.25rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .overflow-hidden {
@@ -756,12 +719,12 @@ video {
   text-wrap: balance;
 }
 
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
 .rounded-md {
   border-radius: 0.375rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .rounded-t-xl {
@@ -773,54 +736,19 @@ video {
   border-width: 1px;
 }
 
-.border-purple-800 {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 33 168 / var(--tw-border-opacity, 1));
-}
-
-.border-blue-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
-}
-
-.border-green-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(34 197 94 / var(--tw-border-opacity, 1));
-}
-
-.border-red-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
-}
-
-.border-blue-800 {
-  --tw-border-opacity: 1;
-  border-color: rgb(30 64 175 / var(--tw-border-opacity, 1));
-}
-
-.border-orange-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(249 115 22 / var(--tw-border-opacity, 1));
-}
-
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1));
-}
-
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
-.bg-blue-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1));
-}
-
 .bg-red-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 242 242 / var(--tw-bg-opacity, 1));
+}
+
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1));
 }
 
 .object-cover {
@@ -842,14 +770,14 @@ video {
   padding-bottom: 0.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-xs {
@@ -888,14 +816,6 @@ video {
 
 .ring-red-500\/10 {
   --tw-ring-color: rgb(239 68 68 / 0.1);
-}
-
-.duration-150 {
-  transition-duration: 150ms;
-}
-
-.duration-1000 {
-  transition-duration: 1000ms;
 }
 
 .duration-700 {
