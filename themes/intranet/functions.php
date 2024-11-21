@@ -18,3 +18,5 @@ add_filter( 'upload_mimes', [$theme, 'upload_mimes'] );
 add_filter( 'wp_check_filetype_and_ext', [$theme, 'fix_svg_mime_type'], 10, 4 );
 
 add_filter('template_include', [$theme, 'load_multisite_custom_template']);
+
+add_filter('post_thumbnail_html', [$theme,'set_default_thumbnail'], 10, 5);
