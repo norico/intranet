@@ -204,4 +204,23 @@ class Theme {
 		}
 		return $template;
 	}
+
+	public function set_default_thumbnail($html, $post_id, $post_thumbnail_id, $size, $attr) {
+		if (!empty($html)) {
+			return $html;
+		}
+		// Chemin vers l'image par défaut (à modifier selon vos besoins)
+		$default_image_path = get_template_directory_uri() . '/assets/images/default-thumbnail.png';
+		$default_html = sprintf(
+			'<img src="%s" class="aspect-video object-cover bg-slate-200" alt="%s" />',
+			esc_url($default_image_path),
+			esc_attr(get_the_title($post_id))
+		);
+
+		return $default_html;
+
+
+	}
+
+
 }
