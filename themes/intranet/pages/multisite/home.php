@@ -8,10 +8,11 @@ get_header();
 		$multisite = Intranet\Multisite::getInstance();
 
 		$args = array(
-			'posts_per_page' => 3,
-			'post_type'      => 'post',
-			'post_status'    => 'publish',
-			'category__not_in' => intval(get_option('default_category'))
+			'posts_per_page'    => 12,
+			'post_type'         => 'post',
+			'post_status'       => 'publish',
+			'category__not_in'  => intval(get_option('default_category')),
+            'exclude_primary'   => true,
 		);
 		$posts = $multisite->Query($args);
 
