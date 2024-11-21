@@ -1,6 +1,6 @@
 /*
 Theme Name: Intranet
-Version: 1.0.0
+Version: 1.0.2
 Author: the team
 Requires at least: 6.7
 Tested up to: 6.7
@@ -614,25 +614,45 @@ video {
   border-width: 0;
 }
 
+.static {
+  position: static;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
 .flex {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
 .min-h-\[calc\(100vh-var\(--wp-admin--admin-bar--height\2c 0px\)\)\] {
   min-height: calc(100vh - var(--wp-admin--admin-bar--height,0px));
 }
 
-.max-w-2xl {
-  max-width: 42rem;
-}
-
 .grow {
   flex-grow: 1;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -643,8 +663,26 @@ video {
   flex-direction: column;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .p-2 {
   padding: 0.5rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-4xl {
@@ -652,3 +690,29 @@ video {
   line-height: 2.5rem;
 }
 
+.wp-block-post-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
