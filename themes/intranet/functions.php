@@ -2,8 +2,12 @@
 if (!defined('ABSPATH'))    exit;
 
 require_once get_stylesheet_directory() . '/classes/Theme.php';
+require_once get_stylesheet_directory() . '/classes/Multisite.php';
 if ( !class_exists('\Intranet\Theme') ) wp_die('Class Intranet Theme not loaded');
 $theme = Intranet\Theme::getInstance();
+
+
+
 
 add_action('wp_enqueue_scripts', [$theme,'wp_enqueue_scripts']);
 add_action('after_setup_theme', [$theme, 'after_setup_theme']);

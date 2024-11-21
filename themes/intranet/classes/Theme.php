@@ -65,6 +65,7 @@ class Theme {
 		update_option('timezone_string', 'Europe/Paris');
 		update_option('date_format', 'j F Y');
 		update_option('time_format', 'G\hi');
+		update_option('rss_use_excerpt', '1');
 
 		$this->set_permalink_structure('/%postname%/');
 		$this->create_new_category('Actualités', 'Les actualités du site');
