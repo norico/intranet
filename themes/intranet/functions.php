@@ -13,4 +13,4 @@ add_action('after_switch_theme', [$theme,'after_switch_theme']);
 add_filter( 'upload_mimes', [$theme, 'upload_mimes'] );
 add_filter( 'wp_check_filetype_and_ext', [$theme, 'fix_svg_mime_type'], 10, 4 );
 
-
+add_filter('template_include', [$theme, 'load_multisite_custom_template']);

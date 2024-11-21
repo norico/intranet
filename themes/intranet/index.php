@@ -1,5 +1,4 @@
 <?php get_header();?>
-<?php get_template_part("template-parts/header"); ?>
 
 <div class="container mx-auto">
 	<?php
@@ -13,7 +12,6 @@
 
 	// Création de la nouvelle requête
 	$query = new WP_Query($args);
-
 	// Boucle d'affichage
 	if ($query->have_posts()) :
 		echo '<ul>'; // Bonne pratique : wrapper la liste

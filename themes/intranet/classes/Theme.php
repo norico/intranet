@@ -124,7 +124,7 @@ class Theme {
 		return compact( 'ext', 'type', 'proper_filename' );
 	}
 
-	public function create_and_set_default_pages($page_definitions = null): void {
+	private function create_and_set_default_pages($page_definitions = null): void {
 		if ($page_definitions === null) {
 			return;
 		}
@@ -187,5 +187,20 @@ class Theme {
 		}
 	}
 
+	/**
+	 * redirect front page and home (blog) for single and multisite
+	 * @param $template
+	 *
+	 * @return string
+	 */
+	public function load_multisite_custom_template($template): string {
 
+		if (is_main_site() && is_front_page()) {
+			return locate_template('pages/multisite/front-page.php');
+		}
+		if (is_main_site() && is_home()) {
+			return locate_template('pages/multisite/home.php');
+		}
+		return $template;
+	}
 }
