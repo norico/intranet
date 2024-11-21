@@ -19,9 +19,9 @@ class Multisite {
 
 	}
 
-	public function Query($args) {
+	public function Query($args): array {
 		$posts= array();
-		$sites = $this->get_available_sites();
+		$sites = $this->get_available_sites($args['exclude_primary']);
 		foreach ( $sites as $blog_id ) {
 			switch_to_blog( $blog_id );
 			$query = new \WP_Query( $args );
@@ -40,7 +40,7 @@ class Multisite {
 		return $posts;
 	}
 
-	private function get_available_sites(): array {
+	private function get_available_sites($exclude_primary=false): array {
 		$sub_sites = get_sites([
 			'public' => 1,
 			'archived' => 0,
@@ -48,9 +48,11 @@ class Multisite {
 			'spam' => 0,
 			'deleted' => 0
 		]);
-		foreach ( $sub_sites as $sub_site ) {
-			$sub_site_ids[]   = get_object_vars($sub_site)["blog_id"];
+		foreach ($sub_sites as $sub_site) {
+			if (!$exclude_primary || get_main_site_id() !== intval($sub_site->blog_id)) {
+				$sub_site_ids[] = intval($sub_site->blog_id);
+			}
 		}
-		return $sub_site_ids ?? array();
+		return $sub_site_ids ?? [];
 	}
 }
