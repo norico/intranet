@@ -68,10 +68,22 @@ class Theme {
 
 		$this->set_permalink_structure('/%postname%/');
 		$this->create_new_category('Actualités', 'Les actualités du site');
-		$this->create_and_set_default_pages([
-			'page_on_front'  => array('title' => 'Accueil',    'content' => 'Contenu de la page d\'accueil'),
-		    'page_for_posts' => array('title' => 'Actualités', 'content' => 'Nos dernières actualités',)
-		]);
+
+		$page_definitions = array(
+			['type' => 'homepage',
+			 'slug' => 'homepage',
+			 'title' => 'Page d’accueil',
+			 'content' => 'Contenu de la page d\'accueil'
+			],
+			['type' => 'blogpage',
+			 'slug' => 'actualites',
+			 'title' => 'Page des articles',
+			 'content' => 'Dernières nouvelles'
+			]
+		);
+
+		$this->create_and_set_default_pages($page_definitions);
+
 	}
 
 	private function set_permalink_structure($permalink_structure=""): void {

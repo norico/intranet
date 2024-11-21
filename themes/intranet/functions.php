@@ -14,17 +14,3 @@ add_filter( 'upload_mimes', [$theme, 'upload_mimes'] );
 add_filter( 'wp_check_filetype_and_ext', [$theme, 'fix_svg_mime_type'], 10, 4 );
 
 
-$page_definitions = array(
-	['type' => 'homepage',
-	 'slug' => 'homepage',
-	 'title' => 'Page d’accueil',
-	 'content' => 'Contenu de la page d\'accueil'
-	],
-	['type' => 'blogpage',
-	 'slug' => 'actualites',
-	 'title' => 'Page des articles',
-	 'content' => 'Dernières nouvelles'
-	]
-);
-
-$theme->create_and_set_default_pages($page_definitions);
