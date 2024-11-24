@@ -1,6 +1,6 @@
 /*
 Theme Name: Intranet
-Version: 1.0.3
+Version: 1.0.4
 Author: the team
 Requires at least: 6.7
 Tested up to: 6.7
@@ -756,13 +756,14 @@ video {
      object-fit: cover;
 }
 
-.p-2 {
-  padding: 0.5rem;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .py-1 {
@@ -827,7 +828,39 @@ video {
   line-height: 2.25rem;
 }
 
-p {
+p,
+li {
+  margin-bottom: 0.5rem;
+}
+
+.titre {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.wp-block-list {
+  margin-left: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+ol.wp-block-list {
+  list-style-type: decimal;
+}
+
+ul.wp-block-list {
+  list-style-type: disc;
+}
+
+.wp-block-list a {
+  text-decoration-line: underline;
+}
+
+.wp-block-quote {
+  border-left-width: 8px;
+  --tw-border-opacity: 1;
+  border-color: rgb(100 116 139 / var(--tw-border-opacity, 1));
+  padding-left: 1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -845,6 +878,13 @@ p {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+@media (min-width: 768px) {
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 @media (min-width: 1024px) {
