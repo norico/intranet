@@ -14,6 +14,7 @@ Domain Path: /languages
 if (!defined('ABSPATH')) {
     exit;
 }
+require_once('Routes.php');
 
 // Initialisation du plugin
 $plugin = IntranetPlugin::getInstance();
@@ -47,6 +48,8 @@ class IntranetPlugin {
      */
     private string $version;
 
+	private object $routes;
+
     /**
      * Classe Instance
      *
@@ -68,6 +71,7 @@ class IntranetPlugin {
         // Utiliser les données du plugin plutôt que du thème
         $this->name = wp_get_theme()->get('Name');
         $this->version = wp_get_theme()->get('Version');
+		$this->routes = new Routes();
         $this->init();
     }
 
@@ -93,6 +97,8 @@ class IntranetPlugin {
         add_filter( 'manage_users_custom_column', [ $this, 'admin_users_column_data' ], 10, 3 );
 
 	    remove_action('wp_head', 'wp_generator');
+
+
     }
 
     /**
