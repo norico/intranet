@@ -1,0 +1,15 @@
+
+@font-face {
+    font-family: "marianne";
+    src: url('../fonts/marianne/Marianne-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "spectral";
+    src: url('../fonts/spectral/Spectral-Regular.ttf');
+}
+
+body {
+    font-family: "spectral";
+}
