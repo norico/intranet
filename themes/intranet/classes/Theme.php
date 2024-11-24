@@ -57,6 +57,22 @@ class Theme {
 		if ( !empty( $author ) ) {
 			echo '<meta name="author" content="'. $author .'">'.PHP_EOL;
 		}
+
+		/*
+		 *  <meta property="og:type" content="website" />
+		 *  <meta property="og:site_name" content=" xxx " />
+		 *  <meta property="og:title" value=" post title or site title " />
+		 *  <meta property="og:description" value=" site description " />
+		 *  <meta property="og:url" value=" blog url " />
+		 *  <meta property="og:locale" content="en_GB" />
+		 *  <meta property="og:image" value="post thumbnail " />
+		 *  <meta property="og:image:alt" value="caption thumbnail" />
+		 *  <meta property="og:image:width" value="xxx px" />
+		 *  <meta property="og:image:height" value="xxx px" />
+		 */
+
+
+
 	}
 
 	public function after_switch_theme(): void {

@@ -13,11 +13,13 @@
 		    <?php the_title('<h1 class="text-2xl text-balance line-clamp-3">','</h1>') ?></div>
         </a>
 
+        <?php if ( get_main_site_id() === get_current_blog_id() ) : ?>
         <div id="card-post-site" class="">
             <a class="hover:underline" href="<?php bloginfo("url"); ?>">
 			    <?php bloginfo("name"); ?>
             </a>
         </div>
+        <?php endif; ?>
 
         <div id="card-post-content" class="grow">
             <div class="line-clamp-6"><?php the_excerpt(); ?></div>

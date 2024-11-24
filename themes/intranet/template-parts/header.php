@@ -1,6 +1,9 @@
-<div id="header">
+<div id="header" class="">
     <div class="container flex flex-row mx-auto">
-        <h1 class="text-4xl p-2"><?php bloginfo('Name') ?></h1>
+        <div class="flex-col">
+            <h1 class="text-4xl grow"><?php bloginfo('name') ?></h1>
+            <h1 class="text-2xl grow"><?php bloginfo('description') ?></h1>
+        </div>
     </div>
 </div>
 

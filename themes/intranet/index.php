@@ -14,11 +14,11 @@
 	$query = new WP_Query($args);
 	// Boucle d'affichage
 	if ($query->have_posts()) :
-		echo '<ul>'; // Bonne pratique : wrapper la liste
+		echo '<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mb-10">';
 		while ($query->have_posts()) : $query->the_post();
-			echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
+			get_template_part('template-parts/content', 'card');
 		endwhile;
-		echo '</ul>';
+        echo '</div>';
 
 		// Restaurer les données de post originales
 		wp_reset_postdata();

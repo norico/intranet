@@ -1,9 +1,7 @@
-<?php
-get_header();
-echo '<div class="container mx-auto">';
-echo '<h1 class="titre">Front page multisite</h1>';
+<?php get_header(); ?>
 
+<div class="container mx-auto">
+	<h1 class="titre">Front page multisite</h1>
+</div>
 
-
-echo '</div>';
-get_footer();
+<?php get_footer(); ?>
