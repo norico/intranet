@@ -5,53 +5,56 @@ if (!defined('ABSPATH')) {
 }
 class Routes {
 
+	private int $route_version  = 1;
+	private string $route_name= 'recent-posts';
+
+
 	public function __construct() {
 		add_action('rest_api_init', [$this, 'register_routes']);
 	}
 
 	public function register_routes(): void {
-		$route_namespace = strtolower(IntranetPlugin::getInstance()->get_theme_name())."/v1";
-		register_rest_route($route_namespace, '/routes', array(
+		$route_namespace = strtolower(IntranetPlugin::getInstance()->get_theme_name())."/v".$this->route_version;
+		register_rest_route($route_namespace, '/'.$this->route_name, array(
 			'methods' => 'GET',
 			'callback' => array($this, 'handle_request'),
 			'permission_callback' => '__return_true'
 		));
 	}
 
-	public function handle_request(WP_REST_Request $request): WP_REST_Response {
-		if( is_multisite() ) {
-			$sites_data = array();
-			$sites = get_sites();
-			foreach ($sites as $site) {
-				switch_to_blog($site->blog_id);
-				$posts_data = $this->get_posts_from_current_site($site->blog_id);
+	public function handle_request(WP_REST_Request $request): WP_REST_Response
+	{
+		$sites_data = [];
 
-				$sites_data[] = array(
-					'blog_id' => $site->blog_id,
-					'site_name' => get_bloginfo('name'),
-					'site_url' => get_bloginfo('url'),
-					'admin_email' => get_bloginfo('admin_email'),
-					'post_count' => wp_count_posts()->publish,
-					'last_updated' => get_lastpostmodified('GMT'),
-					'recent_posts' => $posts_data
-				);
+		// Si multisite, récupérer les données de tous les sites
+		if (is_multisite()) {
+			foreach (get_sites() as $site) {
+				switch_to_blog($site->blog_id);
+				$sites_data[] = $this->get_site_data($site->blog_id);
 				restore_current_blog();
 			}
 		}
+		// Sinon récupérer les données du site unique
 		else {
-			$sites_data[] = array(
-				'blog_id' => 1,
-				'site_name' => get_bloginfo('name'),
-				'site_url' => get_bloginfo('url'),
-				'admin_email' => get_bloginfo('admin_email'),
-				'post_count' => wp_count_posts()->publish,
-				'last_updated' => get_lastpostmodified('GMT'),
-				'recent_posts' => $posts_data
-			);
+			$sites_data[] = $this->get_site_data(1);
 		}
 
 		return new WP_REST_Response($sites_data, 200);
 	}
+
+	private function get_site_data(int $blog_id): array
+	{
+		return [
+			'blog_id' => $blog_id,
+			'site_name' => get_bloginfo('name'),
+			'site_url' => get_bloginfo('url'),
+			'admin_email' => get_bloginfo('admin_email'),
+			'post_count' => wp_count_posts()->publish,
+			'last_updated' => get_lastpostmodified('GMT'),
+			'recent_posts' => $this->get_posts_from_current_site($blog_id)
+		];
+	}
+
 
 	private function get_posts_from_current_site( string $blog_id ): array {
 		if ( is_multisite() ) {
