@@ -15,7 +15,7 @@ Intranet est un theme destiné à être utilisé sur un réseau local.
 https://github.com/norico/intranet/tree/main/themes/intranet
 
 == Changelog ==
-
+1.0.5 fix card-post-site
 1.0.4 fix multisite template on single site
 1.0.3 some functions
 1.0.2 multisite blog and homepage
