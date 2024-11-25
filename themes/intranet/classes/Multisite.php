@@ -11,6 +11,7 @@ class Multisite {
 		}
 		return self::$instance;
 	}
+
 	private function __clone() {
 		return false;
 	}
@@ -19,8 +20,7 @@ class Multisite {
 
 	}
 
-	public function Query($args): array {
-		$posts= array();
+	public function Query($args=null): array {
 		$sites = $this->get_available_sites($args['exclude_primary']);
 		foreach ( $sites as $blog_id ) {
 			switch_to_blog( $blog_id );
@@ -36,7 +36,6 @@ class Multisite {
 		usort($posts, function($a, $b) {
 			return strtotime($b['date']) - strtotime($a['date']);
 		});
-
 		return $posts;
 	}
 
