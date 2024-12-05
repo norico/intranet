@@ -1,0 +1,31 @@
+.front-posts-urls-admin .url-input-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.front-posts-urls-admin .url-input-row input {
+    flex-grow: 1;
+    margin: 0 10px;
+}
+
+.front-posts-urls-admin .sort-handle {
+    cursor: grab;
+    color: #a0a5aa;
+}
+
+.front-posts-urls-admin .sort-handle:active {
+    cursor: grabbing;
+    color: #a0a5aa;
+}
+
+.front-posts-urls-admin .sort-handle:hover {
+    color: #000;
+}
+
+.front-posts-actions {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
